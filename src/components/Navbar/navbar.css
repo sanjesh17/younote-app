@@ -1,0 +1,56 @@
+.navbar-container {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  padding: 10px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar-links {
+  color: white;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  border-radius: 80px;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.01);
+  box-shadow: 0 0 30px rgba(31, 38, 135, 0.82);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar-links p {
+  cursor: pointer;
+}
+
+.auth-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 40px;
+  flex-grow: 1;
+}
+
+.auth-links button {
+  padding: 7px 25px;
+  border: none;
+  cursor: pointer;
+}
+
+.sign-button {
+  border-radius: 30px;
+  color: black;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 0 20px rgba(10, 16, 91, 0.82);
+}
+
