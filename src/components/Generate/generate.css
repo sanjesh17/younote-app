@@ -77,3 +77,66 @@
 .drop-container button:hover {
   box-shadow: 0 0 10px rgb(12, 26, 220);
 }
+
+.download-section {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.download-section h3 {
+  font-size: 30px;
+  margin: 0;
+}
+
+.download-section svg {
+  padding: 10px;
+  justify-self: center;
+  background-color: rgb(176, 50, 50);
+  border-radius: 20px;
+  fill: white;
+  margin-top: 20px;
+  height: 80px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.744);
+  animation: pop-up 0.2s ease;
+  transition: transform 0.2s ease;
+}
+
+.download-section svg:hover {
+  transform: translateY(-10px);
+}
+
+@keyframes pop-up {
+  0% {
+    scale: 0;
+  }
+  50% {
+    scale: 0.5;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+.loader {
+  height: 4px;
+  width: 130px;
+  --c: no-repeat linear-gradient(#962acb 0 0);
+  background: var(--c), var(--c), #ffffff;
+  background-size: 60% 100%;
+  animation: l16 3s infinite;
+}
+
+@keyframes l16 {
+  0% {
+    background-position: -150% 0, -150% 0;
+  }
+  66% {
+    background-position: 250% 0, -150% 0;
+  }
+  100% {
+    background-position: 250% 0, 250% 0;
+  }
+}

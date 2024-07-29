@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./hero.css";
 import withFadeInFromBottom from "../HOC/withFadeInFromBottom";
 
@@ -15,7 +16,9 @@ const Hero = () => {
         </div>
         <div className="start-button">
           <div className="btn-start">
-            <button type="button">Get Started</button>
+            <Link to="/generate">
+              <button type="button">Get Started</button>
+            </Link>
           </div>
         </div>
       </div>

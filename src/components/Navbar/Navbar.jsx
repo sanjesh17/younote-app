@@ -6,7 +6,12 @@ const Navbar = () => {
   return (
     <div className="navbar-container">
       <div className="navbar-logo">
-        <h2>YouNote</h2>
+        <Link
+          to="/home"
+          style={{ color: "white", border: 0, textDecoration: "none" }}
+        >
+          <h2>YouNote</h2>
+        </Link>
       </div>
       <div className="navbar-links">
         <Link
