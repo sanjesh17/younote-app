@@ -1,0 +1,79 @@
+.gen-container {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.gen-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.01);
+  box-shadow: 0 0 30px rgba(31, 38, 135, 0.82);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  border-radius: 120px;
+}
+
+.head-text-gen {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 70px;
+  margin: 0;
+  background: linear-gradient(360deg, #5239ad, #dedde0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.head-text-gen-2 {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  margin-top: -10px;
+  font-weight: 400;
+  font-size: 26px;
+}
+
+.drop-container {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.drop-container input {
+  font-family: "Poppins", sans-serif;
+  width: 700px;
+  border: none;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgb(0, 17, 255);
+  border: solid 2px rgb(0, 17, 255);
+  font-weight: 800;
+}
+
+.drop-container button {
+  position: absolute;
+  right: 20px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  cursor: pointer;
+  background: #6a3093;
+  background: -webkit-linear-gradient(to right, #a044ff, #6a3093);
+  background: linear-gradient(to right, #a044ff, #6a3093);
+  box-shadow: 0 0 3px rgb(24, 34, 173);
+  transition: box-shadow 0.2s ease;
+}
+
+.drop-container button:hover {
+  box-shadow: 0 0 10px rgb(12, 26, 220);
+}

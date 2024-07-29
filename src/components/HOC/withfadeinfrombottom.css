@@ -1,7 +1,7 @@
 @keyframes fadeInFromBottom {
   0% {
     opacity: 0;
-    transform: translateY(60px);
+    transform: translateY(90px);
   }
   100% {
     opacity: 1;
@@ -10,5 +10,5 @@
 }
 
 .fade-in-from-bottom {
-  animation: fadeInFromBottom 2s ease-out forwards;
+  animation: fadeInFromBottom 1s ease-in-out forwards;
 }
