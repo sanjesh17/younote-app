@@ -1,0 +1,205 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.claude-container {
+  padding: 10px 40px;
+  display: flex;
+  flex-direction: column;
+  height: 84vh;
+}
+
+.chat-header {
+  border-radius: 10px 10px 0 0;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #9028bd68;
+}
+
+.chat-header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
+
+.chat-box {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.message {
+  max-width: 90%;
+  margin-bottom: 24px;
+  line-height: 1.5;
+  font-size: 16px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.human-message {
+  align-self: flex-end;
+  height: max-content;
+  width: max-content;
+}
+
+.assistant-message {
+  align-self: flex-start;
+}
+
+.message-content {
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 20px 40px;
+}
+
+.human-message .message-content {
+  background-color: white;
+  color: black;
+}
+
+.assistant-message .message-content {
+  background-color: #9128bd;
+  color: white;
+}
+
+.user-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: black;
+}
+
+.input-container {
+  display: flex;
+  padding: 16px 24px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+
+.input {
+  flex-grow: 1;
+  padding: 12px 48px 12px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  font-size: 16px;
+  resize: none;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: white;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #9128bd;
+}
+
+.send-button {
+  position: absolute;
+  right: 32px;
+  bottom: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.send-icon {
+  width: 20px;
+  height: 20px;
+  color: #34d399;
+}
+
+.send-button:hover .send-icon {
+  opacity: 0.8;
+}
+
+.send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.typing-indicator {
+  display: inline-block;
+  font-weight: bold;
+  color: white;
+}
+
+.typing-indicator span {
+  animation: blink 1.4s infinite both;
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.predefined-prompts {
+  display: flex;
+  gap: 8px;
+  padding: 16px 24px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0 0 10px 10px;
+}
+
+.predefined-prompt-button {
+  flex-grow: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.predefined-prompt-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}

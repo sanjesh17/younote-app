@@ -79,11 +79,12 @@
 }
 
 .download-section {
-  margin-top: 10px;
+  margin-top: 40px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 30px;
+  transition: popup 0.6s ease;
 }
 
 .download-section h3 {
@@ -91,31 +92,52 @@
   margin: 0;
 }
 
-.download-section svg {
-  padding: 10px;
-  justify-self: center;
-  background-color: rgb(176, 50, 50);
+.talk-btn {
+  padding: 20px;
+  text-decoration: none;
+  font-weight: 600;
   border-radius: 20px;
-  fill: white;
-  margin-top: 20px;
-  height: 80px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.744);
-  animation: pop-up 0.2s ease;
-  transition: transform 0.2s ease;
+  border: none;
+  background-color: white;
+  box-shadow: 0 0 2px white;
+  color: black;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
 }
 
-.download-section svg:hover {
-  transform: translateY(-10px);
+.talk-btn:hover {
+  transform: translateY(-5px);
 }
 
-@keyframes pop-up {
+button {
+  text-decoration: none;
+}
+
+.download-btn {
+  padding: 20px;
+  text-decoration: none;
+  border-radius: 20px;
+  border: none;
+  background-color: rgb(229, 56, 56);
+  box-shadow: 0 0 10px rgb(229, 56, 56);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.download-btn:hover {
+    transform: translateY(-5px);
+}
+
+@keyframes popup {
   0% {
     scale: 0;
   }
-  50% {
-    scale: 0.5;
-  }
-  100% {
+  100%{
     scale: 1;
   }
 }
