@@ -130,14 +130,14 @@ button {
 }
 
 .download-btn:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 @keyframes popup {
   0% {
     scale: 0;
   }
-  100%{
+  100% {
     scale: 1;
   }
 }
@@ -160,5 +160,136 @@ button {
   }
   100% {
     background-position: 250% 0, 250% 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .gen-container {
+    margin-top: 80px;
+  }
+
+  .gen-content-container {
+    padding: 1.5rem;
+    border-radius: 100px;
+  }
+
+  .head-text-gen {
+    font-size: 60px;
+  }
+
+  .head-text-gen-2 {
+    font-size: 24px;
+  }
+
+  .drop-container input {
+    width: 600px;
+  }
+
+  .drop-container button {
+    right: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  .gen-container {
+    margin-top: 60px;
+  }
+
+  .gen-content-container {
+    padding: 1rem;
+    border-radius: 80px;
+  }
+
+  .head-text-gen {
+    font-size: 50px;
+  }
+
+  .head-text-gen-2 {
+    font-size: 22px;
+  }
+
+  .drop-container input {
+    width: 500px;
+  }
+
+  .drop-container button {
+    right: 10px;
+    padding: 10px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gen-container {
+    margin-top: 40px;
+  }
+
+  .gen-content-container {
+    padding: 0.5rem;
+    border-radius: 60px;
+  }
+
+  .head-text-gen {
+    font-size: 40px;
+  }
+
+  .head-text-gen-2 {
+    font-size: 20px;
+  }
+
+  .drop-container input {
+    width: 400px;
+    padding: 12px;
+  }
+
+  .drop-container button {
+    padding: 10px 15px;
+  }
+
+  .download-section h3 {
+    font-size: 25px;
+  }
+
+  .talk-btn,
+  .download-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .gen-container {
+    margin-top: 20px;
+  }
+
+  .gen-content-container {
+    padding: 0.25rem;
+    border-radius: 40px;
+  }
+
+  .head-text-gen {
+    font-size: 30px;
+  }
+
+  .head-text-gen-2 {
+    font-size: 18px;
+  }
+
+  .drop-container input {
+    width: 300px;
+    padding: 10px;
+  }
+
+  .drop-container button {
+    padding: 8px 12px;
+  }
+
+  .download-section h3 {
+    font-size: 20px;
+  }
+
+  .talk-btn,
+  .download-btn {
+    padding: 10px;
+    font-size: 13px;
   }
 }

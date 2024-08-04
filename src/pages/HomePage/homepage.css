@@ -25,3 +25,51 @@
     background-position: 0% 0%;
   }
 }
+
+.bg-container {
+  background-image: url("../../assets/bg-2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+.bg-container {
+  background-image: url("../../assets/bg-2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  animation: moveBackground 10s infinite ease-in-out;
+}
+
+
+@media (max-width: 1200px) {
+  .bg-container {
+    animation: none;
+    height: 80vh; 
+  }
+}
+
+@media (max-width: 992px) {
+  .bg-container {
+    animation: none;
+    height: 70vh; 
+  }
+}
+
+@media (max-width: 768px) {
+  .bg-container {
+    animation: none;
+    height: 85vh; 
+  }
+}
+
+@media (max-width: 576px) {
+  .bg-container {
+    animation: none;
+    height: 100vh; 
+  }
+}

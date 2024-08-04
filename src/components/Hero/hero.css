@@ -86,3 +86,59 @@
 .btn-start button:hover {
   transform: translateY(-2px);
 }
+
+@media (max-width: 1200px) {
+  .hero-container {
+    padding: 10px 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-container {
+    padding: 10px 30px;
+  }
+  .text-container h1 {
+    font-size: 50px;
+  }
+  .text-container h3 {
+    font-size: 20px;
+  }
+  .btn-start button {
+    font-size: 18px;
+    padding: 0.5rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 10px 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .text-container h1 {
+    font-size: 40px;
+  }
+  .text-container h3 {
+    font-size: 18px;
+  }
+  .btn-start button {
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-container {
+    padding: 10px 10px;
+  }
+  .text-container h1 {
+    font-size: 30px;
+  }
+  .text-container h3 {
+    font-size: 16px;
+  }
+  .btn-start button {
+    font-size: 14px;
+    padding: 0.5rem 1rem;
+  }
+}

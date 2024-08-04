@@ -54,3 +54,35 @@
   box-shadow: 0 0 20px rgba(10, 16, 91, 0.82);
 }
 
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-container {
+    justify-content: center;
+  }
+
+  .auth-links {
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar-container {
+    padding: 10px 20px;
+  }
+
+  .auth-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sign-button {
+    width: 120px;
+    margin-left: auto;
+  }
+}
