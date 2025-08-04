@@ -81,12 +81,9 @@ const Generate = () => {
 
   const fetchSubtitles = async (videoID) => {
     try {
-      const response = await axios.get(
-        `https://younote-python.onrender.com/api/subtitles`,
-        {
-          params: { videoID },
-        }
-      );
+      const response = await axios.get(`http://localhost:5000/api/subtitles`, {
+        params: { videoID },
+      });
       return response.data.subtitles.map((caption) => caption.text).join(" ");
     } catch (error) {
       console.error("Error fetching subtitles:", error);
