@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./generate.css";
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import withFadeInFromBottom from "../HOC/withFadeInFromBottom";
 import {
   Document,
@@ -58,15 +57,20 @@ const Generate = () => {
   const [success, setSuccess] = useState(false);
 
   const cleanText = (text) => {
-    return text.replace(/[#*_~`]/g, "").replace(/\n{3,}/g, "\n\n").trim();
+    return text
+      .replace(/[#*_~`]/g, "")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim();
   };
 
-  const apiKey = process.env.REACT_APP_API_KEY;
-  if (!apiKey) {
-    console.error("API key is missing!");
+  // OpenRouter API configuration
+  const openRouterApiKey = process.env.REACT_APP_OPENROUTER_API_KEY;
+  const openRouterUrl = "https://openrouter.ai/api/v1/chat/completions";
+
+  if (!openRouterApiKey) {
+    console.error("OpenRouter API key is missing!");
     return null;
   }
-  const genAI = new GoogleGenerativeAI(apiKey);
 
   const getYouTubeVideoId = (url) => {
     const regex =
@@ -77,9 +81,12 @@ const Generate = () => {
 
   const fetchSubtitles = async (videoID) => {
     try {
-      const response = await axios.get(`https://younote-python.onrender.com/api/subtitles`, {
-        params: { videoID },
-      });
+      const response = await axios.get(
+        `https://younote-python.onrender.com/api/subtitles`,
+        {
+          params: { videoID },
+        }
+      );
       return response.data.subtitles.map((caption) => caption.text).join(" ");
     } catch (error) {
       console.error("Error fetching subtitles:", error);
@@ -87,31 +94,64 @@ const Generate = () => {
     }
   };
 
-  const run = async () => {
-    setLoading(true);
-    const videoID = getYouTubeVideoId(url);
-    if (!videoID) {
-      console.error("Invalid YouTube URL");
-      setLoading(false);
-      return;
-    }
-    const subtitles = await fetchSubtitles(videoID);
-    if (!subtitles) {
-      console.error("No subtitles available");
-      setLoading(false);
-      return;
-    }
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const generateContentWithOpenRouter = async (subtitles) => {
     const prompt = `Provide a long and multi-topic summary of the following YouTube video subtitles. Include key points, main arguments, important external references, and overall message. Construct it so that people could use this as notes and read from them, providing complete notes to study and use in the future with perfect real-time examples if possible:
     ${subtitles}`;
+
     try {
-      const result = await model.generateContent(prompt);
-      const response = await result.response.text();
-      const formattedResponse = cleanText(response);
+      const response = await axios.post(
+        openRouterUrl,
+        {
+          model: "meta-llama/llama-4-maverick",
+          messages: [
+            {
+              role: "user",
+              content: prompt,
+            },
+          ],
+          max_tokens: 4000,
+          temperature: 0.7,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${openRouterApiKey}`,
+            "Content-Type": "application/json",
+            "HTTP-Referer": window.location.origin, // Optional: for analytics
+            "X-Title": "YouNote AI", // Optional: for analytics
+          },
+        }
+      );
+
+      return response.data.choices[0].message.content;
+    } catch (error) {
+      console.error("Error generating content with OpenRouter:", error);
+      throw error;
+    }
+  };
+
+  const run = async () => {
+    setLoading(true);
+    try {
+      const videoID = getYouTubeVideoId(url);
+      if (!videoID) {
+        console.error("Invalid YouTube URL");
+        setLoading(false);
+        return;
+      }
+
+      const subtitles = await fetchSubtitles(videoID);
+      if (!subtitles) {
+        console.error("No subtitles available");
+        setLoading(false);
+        return;
+      }
+
+      const generatedText = await generateContentWithOpenRouter(subtitles);
+      const formattedResponse = cleanText(generatedText);
       setGeneratedContent(formattedResponse);
       setSuccess(true);
     } catch (error) {
-      console.error("Error generating content:", error);
+      console.error("Error in run function:", error);
     } finally {
       setLoading(false);
     }
